@@ -14,6 +14,11 @@ class DeployModule extends Module
     public $token;
 
     /**
+     * @var string
+     */
+    public $branch = 'master';
+
+    /**
      * @var bool
      */
     public $forceExecuteCommands = false;

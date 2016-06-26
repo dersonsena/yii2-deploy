@@ -22,13 +22,12 @@ class DefaultController extends Controller
 
     public function actionIndex()
     {
-        $branch = Yii::$app->getRequest()->get('b', 'master');
         $path = Yii::getAlias('@app');
 
         $this->commands = [
             "cd {$path}",
             "git checkout -f 2>&1",
-            "git pull origin {$branch} 2>&1"
+            "git pull origin {$this->module->branch} 2>&1"
         ];
 
         if (YII_ENV_DEV) {

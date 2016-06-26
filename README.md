@@ -93,12 +93,31 @@ Caso tenha dado tudo certo no ```PASSO 2```, siga os passos abaixo para integrar
 EXTRAS
 -------------------
 
-### ALTERANDO O BRANCH
+### GERAÇÃO DE LOGS
 
-Caso você queira que a instrução ```git pull``` utilize um outro branch, basta adicionar o parâmetro ```?b=meu-branch``` na sua URL, como abaixo:
+O Yii2-Deploy a cada execução de comandos no servidor de Produção gera um arquivo ```.txt``` com o log da saída do terminal
+no diretório:
 
 ```
-http://seudominio.com.br/deploy?t=SEU_TOKEN&b=meu-branch
+<APP_PATH>/runtime/deploy/20160626143800.txt
+```
+
+**IMPORTANTE:** só será feito a geração do LOG caso você não esteja no ambiente de Desenvolvimento ```YII_ENV_DEV```.
+
+### ALTERANDO O BRANCH
+
+Caso você queira que a instrução ```git pull``` utilize um outro branch, basta sobrescrever a propriedade ```branch``` no seu ```config/web.php```, como abaixo:
+
+```php
+'modules' => [
+    ...
+    'deploy' => [
+        'class' => 'dersonsena\deploy\DeployModule',
+        'token' => '<SEU TOKEN>',
+        'branch' => 'meu-branch'
+    ],
+    ...
+]
 ```
 
 ### FORÇAR EXECUÇÃO DOS COMANDOS NO AMBIENTE DE DESENVOLVIMENTO
