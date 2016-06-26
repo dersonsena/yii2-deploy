@@ -13,6 +13,7 @@ ambiente de desenvolvimento local, automaticamente atualize o seu repositório r
 
 PRÉ-REQUISITOS
 -------------------
+* GIT instalando no seu servidor;
 * Função nativa do PHP ```shell_exec``` habilitada no seu servidor WEB;
 
 INSTRUÇÕES PARA INSTALAÇÃO
