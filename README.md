@@ -78,7 +78,6 @@ EXTRAS
 -------------------
 
 ### ALTERANDO O BRANCH
--------------------
 
 Caso você queira que a instrução ```git pull``` utilize um outro branch, basta adicionar o parâmetro ```?b=meu-branch``` na sua URL, como abaixo:
 
