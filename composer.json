@@ -1,0 +1,33 @@
+{
+  "name": "dersonsena/yii2-deploy",
+  "description": "Módulo de deploy automático no formato de Modules do Yii Framework 2",
+  "keywords": [
+    "yii2",
+    "deploy",
+    "github deploy",
+    "bitbucket deploy"
+  ],
+  "type": "yii2-extension",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Kilderson Sena",
+      "email": "dersonsena@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": ">=2.0.4",
+    "yiisoft/yii2-bootstrap": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.0.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "dersonsena\\deploy\\": ""
+    }
+  }
+}
