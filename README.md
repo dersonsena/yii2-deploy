@@ -61,7 +61,7 @@ PASSO 2 - FAZENDO PRIMEIRO TESTE
 
 Para efeitos de teste, acesse esta URL no seu navegador: 
 
-```http://seudominio.com.br/deploy?t=SEU_TOKEN``` 
+http://seudominio.com.br/deploy?t=SEU_TOKEN
 
 O módulo deverá "devolver" uma tela com os comandos executados.
 
