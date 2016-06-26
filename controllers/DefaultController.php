@@ -57,12 +57,13 @@ class DefaultController extends Controller
         if (!$this->module->enableComposer)
             return;
 
+        $path = Yii::getAlias('@app');
         $composerLockFile = Yii::getAlias('@app/composer.lock');
 
         if (!file_exists($composerLockFile))
-            $this->commands[] = "{$this->module->phpBin} {$this->module->composerBin} install 2>&1";
+            $this->commands[] = "cd {$path} && {$this->module->phpBin} {$this->module->composerBin} install 2>&1";
         else
-            $this->commands[] = "{$this->module->phpBin} {$this->module->composerBin} update 2>&1";
+            $this->commands[] = "cd {$path} && {$this->module->phpBin} {$this->module->composerBin} update 2>&1";
     }
 
     private function registerLog()
