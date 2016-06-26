@@ -41,7 +41,7 @@ class DefaultController extends Controller
 
     private function executeCommands()
     {
-        if (YII_ENV_DEV || !$this->module->forceExecuteCommands) {
+        if (YII_ENV_DEV && !$this->module->forceExecuteCommands) {
             $this->execText .= '[INFO] Ambiente de desenvolvimento não faz execução dos comandos. =)';
             return;
         }
