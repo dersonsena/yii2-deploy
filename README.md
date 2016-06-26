@@ -74,16 +74,15 @@ Caso tenha dado tudo certo no ```PASSO 2```, siga os passos abaixo para integrar
 5. No campo ```URL``` insira: http://seudominio.com.br/deploy?t=SEU_TOKEN
 6. Clique no Botão ```Save```.
 
-EXTRAS
+[EXTRAS] ALTERANDO O BRANCH
 -------------------
-
-### ALTERANDO O BRANCH
 
 Caso você queira que a instrução ```git pull``` utilize um outro branch, basta adicionar o parâmetro ```?b=meu-branch``` na sua URL, como abaixo:
 
 ```http://seudominio.com.br/deploy?t=SEU_TOKEN&b=meu-branch```
 
-### FORÇAR EXECUÇÃO DOS COMANDOS NO AMBIENTE DE DESENVOLVIMENTO
+[EXTRAS] FORÇAR EXECUÇÃO DOS COMANDOS NO AMBIENTE DE DESENVOLVIMENTO
+-------------------
 
 Por padrão, o Yii2-Deploy não executa os comandos gerados no ambiente de desenvolvimento. Mas, caso você queira desabilitar isso, 
 basta sobrescrever a propriedade ```forceExecuteCommands``` do ```DeployModule``` no seu ```config/web.php```, como abaixo:
