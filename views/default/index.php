@@ -2,6 +2,7 @@
 /* @var $this yii\web\View */
 /* @var $commands array */
 /* @var $output string */
+$this->title = 'Yii2 Deploy Module - by Kilderson Sena';
 ?>
 
 <div class="deploy-default-index">
