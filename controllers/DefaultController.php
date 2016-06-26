@@ -26,20 +26,12 @@ class DefaultController extends Controller
 
         $this->commands = [
             "cd {$path}",
-            "git checkout -f 2>&1",
-            "git pull origin {$this->module->branch} 2>&1"
+            "{$this->module->gitBin} checkout -f 2>&1",
+            "{$this->module->gitBin} pull origin {$this->module->branch} 2>&1"
         ];
 
-        if (YII_ENV_DEV) {
-
-            if ($this->module->forceExecuteCommands)
-                $this->executeCommands();
-            else
-                $this->execText .= '[INFO] Ambiente de desenvolvimento não faz execução dos comandos. =)';
-
-        } else {
-            $this->executeCommands();
-        }
+        $this->addComposerCommands();
+        $this->executeCommands();
 
         return $this->render('index', [
             'commands' => $this->commands,
@@ -49,10 +41,28 @@ class DefaultController extends Controller
 
     private function executeCommands()
     {
+        if (YII_ENV_DEV || !$this->module->forceExecuteCommands) {
+            $this->execText .= '[INFO] Ambiente de desenvolvimento não faz execução dos comandos. =)';
+            return;
+        }
+
         foreach ($this->commands as $command)
             $this->execText .= shell_exec($command) . PHP_EOL;
 
         $this->registerLog();
+    }
+
+    private function addComposerCommands()
+    {
+        if (!$this->module->enableComposer)
+            return;
+
+        $composerLockFile = Yii::getAlias('@app/composer.lock');
+
+        if (!file_exists($composerLockFile))
+            $this->commands[] = "{$this->module->phpBin} {$this->module->composerBin} install 2>&1";
+        else
+            $this->commands[] = "{$this->module->phpBin} {$this->module->composerBin} update 2>&1";
     }
 
     private function registerLog()

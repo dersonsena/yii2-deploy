@@ -136,3 +136,20 @@ basta sobrescrever a propriedade ```forceExecuteCommands``` no seu ```config/web
     ...
 ]
 ```
+
+### PARAMETRIZAÇÕES
+
+```php
+'modules' => [
+    ...
+    'deploy' => [
+        'class' => 'dersonsena\deploy\DeployModule',
+        'token' => '<SEU TOKEN>',
+        'enableComposer' => true // Padrão: true
+        'gitBin' => '/usr/bin/git', // Caminho para o comando git do servidor (Padrão: /usr/bin/git)
+        'phpBin' => '/usr/bin/php', // Caminho para o comando php do servidor (Padrão: /usr/bin/php)
+        'composerBin' => '/usr/bin/composer' // Caminho para o comando composer do servidor (Padrão: /usr/bin/composer)
+    ],
+    ...
+]
+```

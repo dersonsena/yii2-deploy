@@ -21,6 +21,26 @@ class DeployModule extends Module
     /**
      * @var bool
      */
+    public $enableComposer = true;
+
+    /**
+     * @var string
+     */
+    public $phpBin = '/usr/bin/php';
+
+    /**
+     * @var string
+     */
+    public $composerBin = '/usr/bin/composer';
+
+    /**
+     * @var string
+     */
+    public $gitBin = '/usr/bin/git';
+
+    /**
+     * @var bool
+     */
     public $forceExecuteCommands = false;
 
     public function init()
