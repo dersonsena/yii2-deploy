@@ -88,7 +88,9 @@ EXTRAS
 
 Caso você queira que a instrução ```git pull``` utilize um outro branch, basta adicionar o parâmetro ```?b=meu-branch``` na sua URL, como abaixo:
 
+```
 http://seudominio.com.br/deploy?t=SEU_TOKEN&b=meu-branch
+```
 
 ### FORÇAR EXECUÇÃO DOS COMANDOS NO AMBIENTE DE DESENVOLVIMENTO
 
