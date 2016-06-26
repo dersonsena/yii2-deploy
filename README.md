@@ -6,9 +6,15 @@
 Yii2 Deploy Module
 ===========================
 
-Módulo de deploy automático no formato de Modules do Yii Framework 2
+Módulo de deploy automático no formato de Modules do Yii Framework 2. Caso você queria que para todo comando ```git push``` no seu 
+ambiente de desenvolvimento local ele automaticamente atualize o seu repositório remoto, basta seguir as instruções e passos abaixo.
 
 [![Yii2](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)](http://www.yiiframework.com/)
+
+PRÉ-REQUISITOS
+-------------------
+* Serviço de hospedagem linux com acesso SSH;
+* Função nativa do PHP ```shell_exec``` habilitada no seu servidor WEB;
 
 INSTRUÇÕES PARA INSTALAÇÃO
 -------------------
@@ -68,3 +74,28 @@ Caso tenha dado tudo certo no ```PASSO 2```, siga os passos abaixo para integrar
 5. No campo ```URL``` insira: http://seudominio.com.br/deploy?t=SEU_TOKEN
 6. Clique no Botão ```Save```.
 
+EXTRAS
+-------------------
+
+### ALTERANDO O BRANCH
+
+Caso você queira que a instrução ```git pull``` utilize um outro branch, basta adicionar o parâmetro ```?b=meu-branch``` na sua URL, como abaixo:
+
+```http://seudominio.com.br/deploy?t=SEU_TOKEN&b=meu-branch```
+
+### FORÇAR EXECUÇÃO DOS COMANDOS NO AMBIENTE DE DESENVOLVIMENTO
+
+Por padrão, o Yii2-Deploy não executa os comandos gerados no ambiente de desenvolvimento. Mas, caso você queira desabilitar isso, 
+basta sobrescrever a propriedade ```forceExecuteCommands``` do ```DeployModule``` no seu ```config/web.php```, como abaixo:
+ 
+```php
+'modules' => [
+    ...
+    'deploy' => [
+        'class' => 'dersonsena\deploy\DeployModule',
+        'token' => '<SEU TOKEN>',
+        'forceExecuteCommands' => true
+    ],
+    ...
+]
+```
