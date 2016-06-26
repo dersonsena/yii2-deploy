@@ -62,7 +62,7 @@ Você pode também gerar facilmente um token utilizando o componente
 como abaixo:
 
 ```php
-echo \Yii::$app()->security->generateRandomString()
+echo \Yii::$app->security->generateRandomString()
 ```
 
 PASSO 2 - FAZENDO PRIMEIRO TESTE
