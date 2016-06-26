@@ -6,20 +6,19 @@
 Yii2 Deploy Module
 ===========================
 
-Módulo de deploy automático no formato de Modules do Yii Framework 2. Caso você queria que para todo comando ```git push``` no seu 
-ambiente de desenvolvimento local ele automaticamente atualize o seu repositório remoto, basta seguir as instruções e passos abaixo.
+Módulo de deploy automático no formato de Modules do Yii Framework 2. Caso você queira, que para todo comando ```git push``` no seu 
+ambiente de desenvolvimento local, automaticamente atualize o seu repositório remoto, basta seguir as instruções e passos abaixo.
 
 [![Yii2](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)](http://www.yiiframework.com/)
 
 PRÉ-REQUISITOS
 -------------------
-* Serviço de hospedagem linux com acesso SSH;
 * Função nativa do PHP ```shell_exec``` habilitada no seu servidor WEB;
 
 INSTRUÇÕES PARA INSTALAÇÃO
 -------------------
 
-A maneira recomendada para instalar esta extensão é através [composer](http://getcomposer.org/download/).
+A maneira recomendada para instalar esta extensão é através do [composer](http://getcomposer.org/download/).
 
 Execute no seu terminal
 
@@ -35,8 +34,10 @@ ou adicione
 
 na seção ```require``` do seu arquivo `composer.json`.
 
-PASSO 1 - REGISTRANDO MÓDULO NO ```config/web.php```
+PASSO 1 - REGISTRANDO MÓDULO
 -------------------
+
+Registre o módulo no arquivo de configuração ```config/web.php``` conforme o trecho abaixo:
 
 ```php
 'modules' => [
@@ -58,7 +59,11 @@ Você pode utilizar algumas soluções online para gerar seu token. Abaixo, algu
 PASSO 2 - FAZENDO PRIMEIRO TESTE
 -------------------
 
-Para efeitos de teste, acesse no seu navegador: ```http://seudominio.com.br/deploy?t=SEU_TOKEN``` e deverá surgir uma tela com os comandos executados.
+Para efeitos de teste, acesse esta URL no seu navegador: 
+
+```http://seudominio.com.br/deploy?t=SEU_TOKEN``` 
+
+O módulo deverá "devolver" uma tela com os comandos executados.
 
 PASSO 3 - INTEGRAÇÃO
 -------------------
@@ -70,7 +75,7 @@ Caso tenha dado tudo certo no ```PASSO 2```, siga os passos abaixo para integrar
 1. Navegue até o endereço do seu repositório e vá na seção ```settings```;
 2. Navegue até a seção ```Integrations >> Webhooks```;
 3. Clique no botão ```Add Webhook```;
-4. Informe um ```title``` a sua preferência;
+4. Informe um ```title``` de sua preferência;
 5. No campo ```URL``` insira: http://seudominio.com.br/deploy?t=SEU_TOKEN
 6. Clique no Botão ```Save```.
 
@@ -85,8 +90,8 @@ http://seudominio.com.br/deploy?t=SEU_TOKEN&b=meu-branch
 
 ### FORÇAR EXECUÇÃO DOS COMANDOS NO AMBIENTE DE DESENVOLVIMENTO
 
-Por padrão, o Yii2-Deploy não executa os comandos gerados no ambiente de desenvolvimento. Mas, caso você queira desabilitar isso, 
-basta sobrescrever a propriedade ```forceExecuteCommands``` do ```DeployModule``` no seu ```config/web.php```, como abaixo:
+Por padrão, o módulo Yii2-Deploy não executa os comandos gerados no ambiente de desenvolvimento. Mas, caso você queira desabilitá-lo, 
+basta sobrescrever a propriedade ```forceExecuteCommands``` no seu ```config/web.php```, como abaixo:
  
 ```php
 'modules' => [
