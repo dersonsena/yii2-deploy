@@ -6,7 +6,7 @@
 Yii2 Deploy Module
 ===========================
 
-Módulo de deploy automático no formato de Modules do Yii Framework 2. Caso você queira, que para todo comando ```git push``` no seu 
+Módulo de deploy automático no formato de Modules do Yii Framework 2. Caso você queira, que para todo comando ```git push``` no seu
 ambiente de desenvolvimento local, automaticamente atualize o seu repositório remoto, basta seguir as instruções e passos abaixo.
 
 [![Yii2](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)](http://www.yiiframework.com/)
@@ -24,13 +24,13 @@ A maneira recomendada para instalar esta extensão é através do [composer](htt
 Execute no seu terminal
 
 ```
-$ php composer.phar require dersonsena/yii2-deploy "dev-master"
+$ php composer.phar require dersonsena/yii2-deploy "*"
 ```
 
 ou adicione
 
 ```
-"dersonsena/yii2-deploy": "dev-master"
+"dersonsena/yii2-deploy": "*"
 ```
 
 na seção ```require``` do seu arquivo `composer.json`.
@@ -57,8 +57,8 @@ Você pode utilizar algumas soluções online para gerar seu token. Abaixo, algu
 * [http://www.md5.cz](http://www.md5.cz)
 * [http://passwordsgenerator.net/md5-hash-generator/](http://passwordsgenerator.net/md5-hash-generator)
 
-Você pode também gerar facilmente um token utilizando o componente 
-[yii\base\Security](http://www.yiiframework.com/doc-2.0/yii-base-security.html#generateRandomString()-detail) do Yii2 para gerar um token, 
+Você pode também gerar facilmente um token utilizando o componente
+[yii\base\Security](http://www.yiiframework.com/doc-2.0/yii-base-security.html#generateRandomString()-detail) do Yii2 para gerar um token,
 como abaixo:
 
 ```php
@@ -68,7 +68,7 @@ echo \Yii::$app->security->generateRandomString()
 PASSO 2 - FAZENDO PRIMEIRO TESTE
 -------------------
 
-Para efeitos de teste, acesse esta URL no seu navegador: 
+Para efeitos de teste, acesse esta URL no seu navegador:
 
 ```
 http://seudominio.com.br/deploy?t=SEU_TOKEN
@@ -79,7 +79,7 @@ O módulo deverá "devolver" uma tela com os comandos executados.
 PASSO 3 - INTEGRAÇÃO
 -------------------
 
-Caso tenha dado tudo certo no ```PASSO 2```, siga os passos abaixo para integrar sua aplicação 
+Caso tenha dado tudo certo no ```PASSO 2```, siga os passos abaixo para integrar sua aplicação
 
 ### 3.1 INTEGRAÇÃO COM BITBUCKET
 
@@ -103,9 +103,9 @@ http://seudominio.com.br/deploy?t=SEU_TOKEN&b=meu-branch
 
 ### FORÇAR EXECUÇÃO DOS COMANDOS NO AMBIENTE DE DESENVOLVIMENTO
 
-Por padrão, o módulo Yii2-Deploy não executa os comandos gerados no ambiente de desenvolvimento. Mas, caso você queira desabilitá-lo, 
+Por padrão, o módulo Yii2-Deploy não executa os comandos gerados no ambiente de desenvolvimento. Mas, caso você queira desabilitá-lo,
 basta sobrescrever a propriedade ```forceExecuteCommands``` no seu ```config/web.php```, como abaixo:
- 
+
 ```php
 'modules' => [
     ...
