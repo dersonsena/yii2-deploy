@@ -57,6 +57,13 @@ Você pode utilizar algumas soluções online para gerar seu token. Abaixo, algu
 * [http://www.md5.cz](http://www.md5.cz)
 * [http://passwordsgenerator.net/md5-hash-generator/](http://passwordsgenerator.net/md5-hash-generator)
 
+você pode também utiliza o componente [yii\base\Security](http://www.yiiframework.com/doc-2.0/yii-base-security.html#generateRandomString()-detail) 
+do Yii2 para gerar um token, como abaixo:
+
+```
+\Yii::$app()->security->generateRandomString()
+```
+
 PASSO 2 - FAZENDO PRIMEIRO TESTE
 -------------------
 
