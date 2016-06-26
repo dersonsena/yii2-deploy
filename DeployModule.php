@@ -36,6 +36,11 @@ class DeployModule extends Module
     /**
      * @var string
      */
+    public $composerHome;
+
+    /**
+     * @var string
+     */
     public $gitBin = '/usr/bin/git';
 
     /**
