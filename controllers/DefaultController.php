@@ -20,6 +20,12 @@ class DefaultController extends Controller
      */
     private $commands = [];
 
+    public function beforeAction($action)
+    {
+        $this->enableCsrfValidation = false;
+        return parent::beforeAction($action);
+    }
+
     public function actionIndex()
     {
         $path = Yii::getAlias('@app');
