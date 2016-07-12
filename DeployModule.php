@@ -48,10 +48,14 @@ class DeployModule extends Module
      */
     public $forceExecuteCommands = false;
 
+    /**
+     * @var string
+     */
+    public $layout = 'deploy';
+
     public function init()
     {
         $token = Yii::$app->getRequest()->get('t');
-        $this->layout = 'deploy';
 
         if (!function_exists('shell_exec'))
             throw new RuntimeException('A função nativa do PHP "shell_exec" não está ativa no seu servidor WEB.');

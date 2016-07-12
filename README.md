@@ -104,6 +104,22 @@ no diretório:
 
 **IMPORTANTE:** só será feito a geração do LOG caso você não esteja no ambiente de Desenvolvimento ```YII_ENV_DEV```.
 
+### ALTERANDO LAYOUT
+
+Você pode alterar o layout do módulo sobrescrevendo a propriedade ```layout```
+
+```php
+'modules' => [
+    ...
+    'deploy' => [
+        'class' => 'dersonsena\deploy\DeployModule',
+        'token' => '<SEU TOKEN>',
+        'layout' => '@alias/path/to/your-layout'
+    ],
+    ...
+]
+```
+
 ### ALTERANDO O BRANCH
 
 Caso você queira que a instrução ```git pull``` utilize um outro branch, basta sobrescrever a propriedade ```branch``` no seu ```config/web.php```, como abaixo:
