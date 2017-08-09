@@ -120,7 +120,7 @@ class DeployForm extends Model
         }
 
         foreach ($this->commands as $command) {
-            $this->execText .= $command . ": " . PHP_EOL;
+            $this->execText .= "<strong>>> " . $command . "</strong>" . PHP_EOL;
             $this->execText .= shell_exec($command) . PHP_EOL;
             $this->execText .= '-----------------------------------' . PHP_EOL;
         }
