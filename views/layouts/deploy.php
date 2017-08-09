@@ -22,31 +22,32 @@ DeployAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-    <?php NavBar::begin([
-        'brandLabel' => 'Yii2 Deploy Module',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    NavBar::end();
-    ?>
+<div class="container">
+    <div class="page-header">
+        <h1>Yii2 Deploy <small>Simple App Deployer</small></h1>
+    </div>
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
+    <div class="row">
+        <div class="col-md-2">
+            <ul class="nav nav-pills nav-stacked">
+                <li><?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> Deploy Manual', ['index', 't' => $this->context->module->token]) ?></li>
+                <li><?= Html::a('<i class="glyphicon glyphicon-time"></i> Log de Deploy', ['log', 't' => $this->context->module->token]) ?></li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+            <?= $content ?>
+        </div>
     </div>
 </div>
 
 <footer class="footer">
     <div class="container">
+        <div class="row">
+            <div class="col-md-12"><hr /></div>
+        </div>
         <p class="pull-left">&copy; Yii2 Deploy Module <?= date('Y') ?></p>
-
         <p class="pull-right">
-            <?= Html::a('Kilderson Sena', 'https://github.com/dersonsena', [
+            <?= Html::a('by Kilderson Sena', 'https://github.com/dersonsena', [
                 'title' => 'Meu perfil do GitHub',
                 'target' => '_blank'
             ]) ?>

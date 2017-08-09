@@ -3,7 +3,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/dersonsena/yii2-user-module/v/unstable)](https://packagist.org/packages/dersonsena/yii2-user-module)
 [![License](https://poser.pugx.org/dersonsena/yii2-user-module/license)](https://packagist.org/packages/dersonsena/yii2-user-module)
 
-Yii2 Deploy Module
+Yii2 Deploy
 ===========================
 
 Módulo de deploy automático no formato de Modules do Yii Framework 2. Caso você queira, que para todo comando ```git push``` no seu
@@ -14,7 +14,7 @@ ambiente de desenvolvimento local, automaticamente atualize o seu repositório r
 PRÉ-REQUISITOS
 -------------------
 * GIT instalando no seu servidor;
-* Função nativa do PHP ```shell_exec``` habilitada no seu servidor WEB;
+* Função nativa do PHP `shell_exec` habilitada no seu servidor WEB;
 
 INSTRUÇÕES PARA INSTALAÇÃO
 -------------------
@@ -103,22 +103,6 @@ no diretório:
 ```
 
 **IMPORTANTE:** só será feito a geração do LOG caso você não esteja no ambiente de Desenvolvimento ```YII_ENV_DEV```.
-
-### ALTERANDO LAYOUT
-
-Você pode alterar o layout do módulo sobrescrevendo a propriedade ```layout```
-
-```php
-'modules' => [
-    ...
-    'deploy' => [
-        'class' => 'dersonsena\deploy\DeployModule',
-        'token' => '<SEU TOKEN>',
-        'layout' => '@alias/path/to/your-layout'
-    ],
-    ...
-]
-```
 
 ### ALTERANDO O BRANCH
 
