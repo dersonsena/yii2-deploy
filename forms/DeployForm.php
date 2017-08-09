@@ -107,8 +107,8 @@ class DeployForm extends Model
             "{$this->gitBin} pull origin {$this->branch} 2>&1"
         ];
 
-        $this->addComposerCommands();
         $this->addComposerAssetPlugin();
+        $this->addComposerCommands();
         $this->executeCommands();
     }
 
