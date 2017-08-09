@@ -119,8 +119,11 @@ class DeployForm extends Model
             return;
         }
 
-        foreach ($this->commands as $command)
+        foreach ($this->commands as $command) {
+            $this->execText .= $command . ": " . PHP_EOL;
             $this->execText .= shell_exec($command) . PHP_EOL;
+            $this->execText .= '-----------------------------------' . PHP_EOL;
+        }
 
         $this->registerLog();
     }
