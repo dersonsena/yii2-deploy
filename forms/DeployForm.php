@@ -21,6 +21,11 @@ class DeployForm extends Model
     public $forceExecuteCommands;
 
     /**
+     * @var bool
+     */
+    public $installComposerAssetPlugin;
+
+    /**
      * @var string
      */
     public $phpBin;
@@ -58,6 +63,7 @@ class DeployForm extends Model
             'branch' => $module->branch,
             'enableComposer' => $module->enableComposer,
             'forceExecuteCommands' => $module->forceExecuteCommands,
+            'installComposerAssetPlugin' => $module->installComposerAssetPlugin,
             'phpBin' => $module->phpBin,
             'composerBin' => $module->composerBin,
             'gitBin' => $module->gitBin,
@@ -70,7 +76,7 @@ class DeployForm extends Model
         return [
             [['branch', 'enableComposer', 'forceExecuteCommands', 'phpBin', 'composerBin', 'gitBin', 'composerHome'], 'required'],
             [['branch', 'phpBin', 'composerBin', 'gitBin', 'composerHome'], 'string'],
-            [['enableComposer', 'forceExecuteCommands'], 'boolean'],
+            [['enableComposer', 'forceExecuteCommands', 'installComposerAssetPlugin'], 'boolean'],
         ];
     }
 
@@ -80,6 +86,7 @@ class DeployForm extends Model
             'branch' => 'Branch',
             'enableComposer' => "Executar o comando `composer update`.",
             'forceExecuteCommands' => "Forçar a execução dos comandos no ambiente de Desenvolvimento.",
+            'installComposerAssetPlugin' => "Instalar pacote `fxp/composer-asset-plugin`.",
             'phpBin' => 'Binário do PHP',
             'composerBin' => 'Binário do Composer',
             'gitBin' => 'Binário do GIT',
@@ -101,6 +108,7 @@ class DeployForm extends Model
         ];
 
         $this->addComposerCommands();
+        $this->addComposerAssetPlugin();
         $this->executeCommands();
     }
 
@@ -124,13 +132,20 @@ class DeployForm extends Model
 
         $path = \Yii::getAlias('@app');
         $composerLockFile = \Yii::getAlias('@app/composer.lock');
-
         $composerHome = (!is_null($this->composerHome) && !empty($this->composerHome) ? " COMPOSER_HOME=\"{$this->composerHome}\"" : '');
 
         if (!file_exists($composerLockFile))
             $this->commands[] = "cd {$path} &&{$composerHome} {$this->phpBin} {$this->composerBin} install 2>&1";
         else
             $this->commands[] = "cd {$path} &&{$composerHome} {$this->phpBin} {$this->composerBin} update 2>&1";
+    }
+
+    private function addComposerAssetPlugin()
+    {
+        if (!$this->installComposerAssetPlugin)
+            return;
+
+        $this->commands[] = "{$this->phpBin} {$this->composerBin} global require \"fxp/composer-asset-plugin:^1.3.1\" 2>&1";
     }
 
     private function registerLog()

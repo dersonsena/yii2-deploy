@@ -33,6 +33,11 @@ $this->title = 'Manual - Yii2 Deploy';
                 <?= $form->field($formModel, 'enableComposer')->checkbox() ?>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <?= $form->field($formModel, 'installComposerAssetPlugin')->checkbox() ?>
+            </div>
+        </div>
         <?php if (YII_ENV_DEV): ?>
             <div class="row">
                 <div class="col-md-12">
